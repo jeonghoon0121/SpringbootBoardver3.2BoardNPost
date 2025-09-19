@@ -20,20 +20,6 @@
         }
 
     </style>
-
-<!--    <table class="centered">-->
-<!--        <tr>-->
-<!--            <th>게시판id</th>-->
-<!--            <th>게시판이름</th>-->
-<!--            <th>게시판설명</th>-->
-<!--        </tr>-->
-<!--        <tr th:each="board : ${ boardV3DTOs }">-->
-<!--            <td th:text="${ board.boardId }"></td>-->
-<!--            <td th:text="${ board.name }"></td>-->
-<!--            <td th:text="${ board.description }"></td>-->
-<!--            <td><a href="#" th:text="${ board.name }"></a></td>-->
-<!--        </tr>-->
-<!--    </table>-->
     <table class="centered">
         <tr>
             <th>게시판id</th>
@@ -46,6 +32,18 @@
                 <a th:href="@{'/boardv3/' + ${board.boardId}}" th:text="${ board.name }"></a>
             </td>
             <td th:text="${ board.description }"></td>
+        </tr>
+        </table>
+        <table>
+        <tr>
+            <th>게시판ID</th>
+            <th>제목</th>
+            <th>작성자</th>
+        </tr>
+        <tr th:each="post : ${postV3DTOs}">
+            <td th:text="${post.postId}"></td>
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.authorId}"></td>
         </tr>
     </table>
 </body>

@@ -1,5 +1,6 @@
 package com.ohgiraffers.request.comment;
 
+import com.ohgiraffers.request.post.PostMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

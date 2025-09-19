@@ -17,29 +17,19 @@ public class BoardV3Controller {
     @GetMapping
     public String homeBoard(Model model) {
         List<BoardV3DTO> boardV3DTOs = boardV3Service.findAllBoards();
+        List<PostV3DTO> postV3DTOs =boardV3Service.findAllPosts();
 
         for (BoardV3DTO boards : boardV3DTOs) {
             System.out.println(boards);
         }
+        for(PostV3DTO posts:postV3DTOs){
+            System.out.println(posts);
+        }
         model.addAttribute("boardV3DTOs", boardV3DTOs);
-        return "boardv3/description";
-    }
-    @GetMapping("test")
-    public String homeBoard1(Model model) {
-        List<PostV3DTO> popstV3DTOs = boardV3Service.findPostById(1);
-
+        model.addAttribute("postV3DTOs", postV3DTOs);
         return "boardv3/description";
     }
 
-    @GetMapping("/{boardId}")
-    public String viewBoard(@PathVariable long boardId, Model model) {
-        BoardV3DTO boardV3DTO = boardV3Service.findBoardById(boardId);
-        List<PostV3DTO> postV3DTO = boardV3Service.findPostById(boardId);
-
-        model.addAttribute("boardDTO", boardV3DTO);
-        System.out.println("controller" + boardV3DTO);
-        return "boardv3/" + boardId;
-    }
 }
 
 
