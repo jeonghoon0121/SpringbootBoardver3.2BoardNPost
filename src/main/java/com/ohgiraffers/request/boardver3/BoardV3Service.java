@@ -13,5 +13,6 @@ public class BoardV3Service {
         return boardV3Mapper.findAllBoards();
     }
     public List<PostV3DTO> findAllPosts(){return boardV3Mapper.findAllPosts();}
+    public List<CommentV3DTO> findAllComments(){return boardV3Mapper.findAllComments();}
     }
 

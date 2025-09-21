@@ -22,6 +22,16 @@
         <result property="createdAt" column="created_at"/>
         <result property="updatedAt" column="updated_at"/>
     </resultMap>
+    <resultMap id="commentResultMap" type="com.ohgiraffers.request.boardver3.CommentV3DTO">
+        <id property="commentId" column="comment_id"/>
+        <result property="postId" column="post_id"/>
+        <result property="authorId" column="author_id"/>
+        <result property="password" column="password"/>
+        <result property="content" column="content"/>
+        <result property="ipHash" column="ip_hash"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
 
     <select id="findAllBoards" resultMap="boardResultMap">
         SELECT
@@ -46,15 +56,20 @@
         FROM posts
         ORDER by post_Id
     </select>
-    <select id="selectBoardById" parameterType="long" resultMap="boardResultMap">
-        SELECT
-        board_id,
-        name,
-        description,
-        user_active,
-        admin_active
-        FROM board_v3
-        WHERE board_id = #{boardId}
-
+    <select id="findAllComments" resultMap="commentResultMap">
+    SELECT
+    comment_id,
+    post_id,
+    author_id,
+    password,
+    content,
+    ip_Hash,
+    created_at,
+    updated_at
+    FROM comments
+    ORDER by comment_id
     </select>
+
+
+
 </mapper>

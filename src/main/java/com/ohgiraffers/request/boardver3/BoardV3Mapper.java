@@ -9,4 +9,5 @@ import java.util.List;
 public interface BoardV3Mapper {
     List<BoardV3DTO> findAllBoards();
     List<PostV3DTO> findAllPosts();
+    List<CommentV3DTO> findAllComments();
 }
